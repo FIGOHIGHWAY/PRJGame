@@ -16,10 +16,10 @@ public class NPCMovement : MonoBehaviour
     public float  waitTime;
     private float waitCounter;
 
-    private int WalkDirection;
+    private bool moveRight = true;
 
     public Animator animator;
-					
+
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -28,27 +28,19 @@ public class NPCMovement : MonoBehaviour
         walkCounter = walkTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(isWalking){
-            animator.SetBool("move", false);
+            animator.SetBool("move", true);
             walkCounter -= Time.deltaTime;
 
-            switch (WalkDirection)
-            {
-            case 0:
-                Flipright();
+            if(moveRight){
                 myRigidbody.velocity = new Vector2 (moveSpeed, 0);
-                animator.SetBool("move", true);
-                break;
-            
-            case 1:
-                Flipleft();
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+            else{
                 myRigidbody.velocity = new Vector2 (-moveSpeed, 0);
-                animator.SetBool("move", true);
-                break;
-
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
             }
 
             if(walkCounter < 0){
@@ -57,30 +49,19 @@ public class NPCMovement : MonoBehaviour
                 waitCounter = waitTime;
             }
         }
-        
-        else
-        {
+
+        else{
+           animator.SetBool("move", false);
            waitCounter -= Time.deltaTime;
 
            myRigidbody.velocity = Vector2.zero;
 
            if(waitCounter < 0){
-                ChooseDirection();
+                moveRight = !moveRight;
+                isWalking = true;
+                walkCounter = walkTime;
            }
         }
     }
-
-    public void ChooseDirection(){
-        WalkDirection = Random.Range (0,4);
-        isWalking = true;
-        walkCounter = walkTime;
-    }
-    private void Flipleft()
-	{
-		transform.localRotation = Quaternion.Euler(0, 180, 0);
-	}
-    private void Flipright()
-	{
-		transform.localRotation = Quaternion.Euler(0, 0, 0);
-	}
 }
+

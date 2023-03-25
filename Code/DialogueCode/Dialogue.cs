@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
     public Button BR;
     public AudioSource audioSource;
 
-    public Text text;
+    public TextMeshProUGUI  text;
     public string[] lines;
     public float textSpeed;
     public Animator animator;
@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
         BA.enabled = false;
         audioSource.Stop();
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        if (SceneManager.GetActiveScene().name == "CP1")
+        if (SceneManager.GetActiveScene().name == "CP1" && SceneManager.GetActiveScene().name == "CP2" && SceneManager.GetActiveScene().name == "CP3" && SceneManager.GetActiveScene().name == "CP4")
         {
             BL.enabled = false;
             BR.enabled = false;
@@ -88,7 +88,7 @@ public class Dialogue : MonoBehaviour
             scriptenabled.enabled = true;
             BB.enabled = true;
             BA.enabled = true;
-             if (SceneManager.GetActiveScene().name == "CP1")
+            if (SceneManager.GetActiveScene().name == "CP1" && SceneManager.GetActiveScene().name == "CP2" && SceneManager.GetActiveScene().name == "CP3" && SceneManager.GetActiveScene().name == "CP4")
             {
                 BL.enabled = true;
                 BR.enabled = true;

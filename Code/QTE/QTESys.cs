@@ -23,7 +23,7 @@ public class QTESys : MonoBehaviour
     public GameObject DisplayBox;
     public GameObject PassBox;
     public GameObject Trigger;
-    public GameObject OBJKey;
+    public GameObject OBJKey,Door,DoorLCK;
     public int QTEGen;
     public int WaitingForKey;
     public int CorrectKey;
@@ -133,6 +133,8 @@ public class QTESys : MonoBehaviour
                 if (SceneManager.GetActiveScene().name == "CP2")
                 {
                     OBJKey.SetActive(true);
+                    Door.SetActive(true);
+                    DoorLCK.SetActive(false);
                 }
             }
         }

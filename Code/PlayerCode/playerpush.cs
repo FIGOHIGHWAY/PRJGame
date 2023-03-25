@@ -13,7 +13,7 @@ public class playerpush : MonoBehaviour
     public Button BA;
 
 	GameObject box;
-	private bool isPushing = false;
+	public bool isPushing = false;
 	private bool isHolding = false;
 
 	
@@ -35,6 +35,7 @@ public class playerpush : MonoBehaviour
 			box.GetComponent<FixedJoint2D> ().enabled = false;
 			box.GetComponent<boxpull> ().beingPushed = false;
 		}
+		
 
 		if (isPushing && !isHolding)
         {
@@ -66,7 +67,7 @@ public class playerpush : MonoBehaviour
 		}
 	}
 
-	void drop()
+	public void drop()
     {
         isPushing = false;
         if (box != null)

@@ -16592,6 +16592,12 @@ MonoBehaviour:
   Door10: {fileID: 0}
   Door11: {fileID: 0}
   Door12: {fileID: 0}
+  Door13: {fileID: 0}
+  Door14: {fileID: 0}
+  Door15: {fileID: 0}
+  Door16: {fileID: 0}
+  Door17: {fileID: 0}
+  Door18: {fileID: 0}
 --- !u!114 &1136571394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16616,6 +16622,8 @@ MonoBehaviour:
   KeyOPDoor: {fileID: 0}
   DL1: {fileID: 0}
   DL2: {fileID: 0}
+  BG1: {fileID: 0}
+  BG2: {fileID: 0}
   loopCount: 0
 --- !u!95 &1136571397 stripped
 Animator:
@@ -44609,7 +44617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c215f810430374d827ed55a2063819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1675687951}
   moveSpeed: 3
   isWalking: 0
   walkTime: 3

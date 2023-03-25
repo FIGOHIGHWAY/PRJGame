@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump")){
             jump = true;
+            animator.SetBool("IsJumping",true);
         }
 
     }
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         jump = true;
-        
+        animator.SetBool("IsJumping",true);
     }
 
     public void Onlanding ()

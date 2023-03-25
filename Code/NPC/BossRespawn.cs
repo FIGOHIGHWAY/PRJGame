@@ -8,20 +8,48 @@ public class BossRespawn : MonoBehaviour
 {
     public GameObject player,Boss;
     public GameObject Deadcon,respawnPointplayer,respawnPointBoss;
-    // Start is called before the first frame update
-    private void OnTriggerStay2D(Collider2D collision)
+    public GameObject[] boxes;
+    public playerpush playerPushScript; // reference to the playerpush script
+    private Rigidbody2D[] boxRigidbodies;
+    private Vector3[] boxPositions;
+
+    private void Awake()
     {
-        if(collision.tag == "Player")
+        // Store the starting positions of the boxes
+        boxPositions = new Vector3[boxes.Length];
+        for (int i = 0; i < boxes.Length; i++)
+        {
+            boxPositions[i] = boxes[i].transform.position;
+        }
+        for (int i = 0; i < boxes.Length; i++)
+        {
+            boxes[i].transform.position = boxPositions[i];
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
         {
             player.transform.position = respawnPointplayer.transform.position;
             Boss.transform.position = respawnPointBoss.transform.position;
+
             Deadcon.SetActive(true);
             Time.timeScale = 0f;
+
+            // Reset the positions of the boxes
+            for (int i = 0; i < boxes.Length; i++)
+            {
+                boxes[i].transform.position = boxPositions[i];
+            }
         }
+
     }
-    
-    public void RestartLevel()
+
+    public void DeadConB()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Deadcon.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
+

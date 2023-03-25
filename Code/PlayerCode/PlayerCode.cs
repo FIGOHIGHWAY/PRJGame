@@ -15,7 +15,7 @@ public class PlayerCode : MonoBehaviour
     float horizontalMove = 0f;
 
 	[SerializeField]
-	GameObject JailDoor, codePanel ,DigitCodeSw, DoorSwitch, Note1,DeadCon,KeyOPDoor,DL1,DL2;
+	GameObject JailDoor, codePanel ,DigitCodeSw, DoorSwitch, Note1,DeadCon,KeyOPDoor,DL1,DL2,BG1,BG2;
     private bool enterAllowed;
     private bool enterAllowedSw;
     private bool enterAllowedSNote;
@@ -24,14 +24,13 @@ public class PlayerCode : MonoBehaviour
     private bool hiding = false; 
     public int loopCount = 0;
     
-
 	public static bool isSafeOpened = false;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
         rend = GetComponent<SpriteRenderer> ();
 		
-        if (SceneManager.GetActiveScene().name == "Test" && SceneManager.GetActiveScene().name == "CP1")
+        if (SceneManager.GetActiveScene().name == "Test")
         {
             JailDoor.SetActive (false);
             codePanel.SetActive (false);
@@ -40,18 +39,37 @@ public class PlayerCode : MonoBehaviour
             DigitCodeSw.SetActive (true);
             DL1.SetActive(false);
             DL2.SetActive(false);
-            if(SceneManager.GetActiveScene().name == "Test"){
-                 DoorSwitch.SetActive(false); 
-            }
+            DoorSwitch.SetActive(false); 
         }
-        if (SceneManager.GetActiveScene().name == "CP3")
+        else if (SceneManager.GetActiveScene().name == "CP1")
         {
             JailDoor.SetActive (false);
             codePanel.SetActive (false);
             Note1.SetActive(false);
             DeadCon.SetActive(false);
             DigitCodeSw.SetActive (true);
-            
+            DL1.SetActive(false);
+            DL2.SetActive(false);            
+        }
+        else if (SceneManager.GetActiveScene().name == "CP3")
+        {
+            JailDoor.SetActive (false);
+            codePanel.SetActive (false);
+            Note1.SetActive(false);
+            DeadCon.SetActive(false);
+            DigitCodeSw.SetActive (true); 
+            BG1.SetActive (false); 
+        }
+        else if (SceneManager.GetActiveScene().name == "CP4")
+        {
+            JailDoor.SetActive (false);
+            codePanel.SetActive (false);
+            Note1.SetActive(false);
+            DeadCon.SetActive(false);
+            DigitCodeSw.SetActive (true);
+            DL1.SetActive(false);
+            DL2.SetActive(false);
+            DoorSwitch.SetActive(false); 
         }
         
 	}
@@ -68,6 +86,11 @@ public class PlayerCode : MonoBehaviour
             set = true;
         } 
         else if (col.GetComponent<SwitchDoor>())
+        {
+            enterAllowedSw = true;
+            set = true;
+        }
+        else if (col.gameObject.name.Equals("Switch") && SceneManager.GetActiveScene().name == "CP4")
         {
             enterAllowedSw = true;
             set = true;
@@ -98,6 +121,11 @@ public class PlayerCode : MonoBehaviour
             enterAllowedSw = false;
             set = false;
         }
+        else if (col.gameObject.name.Equals("Switch") && SceneManager.GetActiveScene().name == "CP4")
+        {
+            enterAllowedSw = false;
+            set = false;
+        }
         else if (col.GetComponent<Note>())
         {
             enterAllowedSNote = false;
@@ -118,7 +146,6 @@ public class PlayerCode : MonoBehaviour
 			    JailDoor.SetActive (true);
                 codePanel.SetActive (false);
                 DigitCodeSw.SetActive (false);
-                
 		    }
         }
         if (SceneManager.GetActiveScene().name == "CP1")
@@ -150,6 +177,7 @@ public class PlayerCode : MonoBehaviour
                     DigitCodeSw.SetActive (false);
                     scriptenabled.enabled = true;
                     DL1.SetActive(true);
+                    BG1.SetActive (true); 
                 } 
 		    }
         }
@@ -176,15 +204,15 @@ public class PlayerCode : MonoBehaviour
         if (canHide && hiding)
         {
             Physics2D.IgnoreLayerCollision(6, 8, false);
-            rend.sortingOrder = 2;
+            rend.sortingLayerName = "Player";
             hiding = false;
             scriptenabled.enabled = true;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
             
-        }else if (canHide){
-            
+        }else if (canHide)
+        {
             Physics2D.IgnoreLayerCollision(6, 8, true);
-            rend.sortingOrder = 0;
+            rend.sortingLayerName = "hide";
             hiding = true;
             scriptenabled.enabled = false;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
@@ -199,6 +227,12 @@ public class PlayerCode : MonoBehaviour
             audioSource.Stop();
             scriptenabled.enabled = false;
             Time.timeScale = 0f;
+        }
+        else if(enterAllowedSw){
+            DoorSwitch.SetActive(set);
+            BG1.SetActive(false);
+            BG2.SetActive(true);
+            Debug.Log("Unlock");
         }
     }
     public void EnterNote()

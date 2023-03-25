@@ -40,7 +40,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-
     }
     public void GoToMainMenu(){
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

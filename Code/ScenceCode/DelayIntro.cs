@@ -9,6 +9,8 @@ public class DelayIntro : MonoBehaviour
     public float delayTime = 3.0f; // กำหนดเวลา Delay ที่ต้องการ
     public Image fadeImage;
     public float fadeTime = 1.0f;
+    [SerializeField]
+    private string sceneNameToLoad;
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class DelayIntro : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime); // รอจนกว่าจะผ่านเวลาที่กำหนด
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // โหลด Scene หลัก
+        SceneManager.LoadScene(sceneNameToLoad); // โหลด Scene หลัก
     }
     IEnumerator FadeInCoroutine()
     {

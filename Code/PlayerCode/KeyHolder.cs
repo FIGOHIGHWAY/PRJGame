@@ -50,27 +50,12 @@ public class KeyHolder : MonoBehaviour
         }
 
         KeyDoor keyDoor = collider.GetComponent<KeyDoor>();
-        //CP1 INS
-        if (keyDoor != null && collider.GetComponent<JailDoor>()){
-            if (ContainsKey(keyDoor.GetKeyType())){
-                RemoveKey(keyDoor.GetKeyType());
-                RSP = respawnPoint;
-                enterAllowedIn = true;
-            }  
-        }
+        
         //Test
-        else if (keyDoor != null && collider.GetComponent<SCDoor>()){
+        if (keyDoor != null && collider.GetComponent<SCDoor>()){
             if (ContainsKey(keyDoor.GetKeyType())){
                 RemoveKey(keyDoor.GetKeyType());
                 sceneToLoad = "CP1 OutSideJail";
-                enterAllowed = true;
-            }  
-        }
-        //CP1 OS TO CP2 OS
-        else if (keyDoor != null && collider.GetComponent<CP1TOCP2>() && SceneManager.GetActiveScene().name == "CP1"){
-            if (ContainsKey(keyDoor.GetKeyType())){
-                RemoveKey(keyDoor.GetKeyType());
-                sceneToLoad = "CP2";
                 enterAllowed = true;
             }  
         }
@@ -96,6 +81,20 @@ public class KeyHolder : MonoBehaviour
         //CP1
         if (SceneManager.GetActiveScene().name == "CP1")
         {
+            //CP1 INS
+            if (keyDoor != null && collider.GetComponent<JailDoor>()){
+                if (ContainsKey(keyDoor.GetKeyType())){
+                    RSP = respawnPoint;
+                    enterAllowedIn = true;
+                }  
+            }
+            //CP1 OS TO CP2 OS
+            else if (keyDoor != null && collider.GetComponent<CP1TOCP2>()){
+                if (ContainsKey(keyDoor.GetKeyType())){
+                    sceneToLoad = "LD CP2";
+                    enterAllowed = true;
+            }  
+            }
             if (collider.GetComponent<DoorInSc>())
             {
                 RSP = Door2;
@@ -185,8 +184,8 @@ public class KeyHolder : MonoBehaviour
             else if (keyDoor != null && collider.gameObject.name.Equals("Door9"))
             {
                 if (ContainsKey(keyDoor.GetKeyType())){
-                RSP = Door10;
-                enterAllowedIn = true;
+                    RSP = Door10;
+                    enterAllowedIn = true;
                 }
             }
             else if (collider.gameObject.name.Equals("Door10"))
@@ -202,6 +201,18 @@ public class KeyHolder : MonoBehaviour
             else if (collider.gameObject.name.Equals("Door12"))
             {
                 RSP = Door11;
+                enterAllowedIn = true;
+            }
+            else if (keyDoor != null && collider.gameObject.name.Equals("Door13"))
+            {
+                if (ContainsKey(keyDoor.GetKeyType())){
+                    RSP = Door14;
+                    enterAllowedIn = true;
+                }
+            }
+            else if (collider.gameObject.name.Equals("Door14"))
+            {
+                RSP = Door13;
                 enterAllowedIn = true;
             }
         } 
@@ -291,6 +302,60 @@ public class KeyHolder : MonoBehaviour
                 RSP = Door15;
                 enterAllowedIn = true;
             }
+            else if (collider.gameObject.name.Equals("Door17"))
+            {
+                RSP = Door18;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door18"))
+            {
+                RSP = Door17;
+                enterAllowedIn = true;
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "CP4")
+        {
+            if (collider.gameObject.name.Equals("Door1"))
+            {
+                RSP = Door2;
+                enterAllowedIn = true;
+            
+            } 
+            else if (collider.gameObject.name.Equals("Door2"))
+            {
+                RSP = Door1;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door3"))
+            {
+                RSP = Door4;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door4"))
+            {
+                RSP = Door3;
+                enterAllowedIn = true;
+            } 
+            else if (collider.gameObject.name.Equals("Door5"))
+            {
+                RSP = Door6;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door6"))
+            {
+                RSP = Door5;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door7"))
+            {
+                RSP = Door8;
+                enterAllowedIn = true;
+            }
+            else if (collider.gameObject.name.Equals("Door8"))
+            {
+                RSP = Door7;
+                enterAllowedIn = true;
+            }
         }          
     }
     
@@ -314,13 +379,16 @@ public class KeyHolder : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "CP1")
         {
-            if (collider.GetComponent<JailDoor>())
+            if (collider.GetComponent<JailDoor>()){
+                enterAllowedIn = false;
+            }
+            else if (collider.GetComponent<CP1TOCP2>())
             {
                 enterAllowed = false;
-            } 
+            }
             else if (collider.GetComponent<SCDoor>())
             {
-                enterAllowed = false;
+                enterAllowedIn = false;
             }
             else if (collider.GetComponent<DoorInSc>())
             {
@@ -414,7 +482,14 @@ public class KeyHolder : MonoBehaviour
             else if (collider.gameObject.name.Equals("Door12"))
             {
                 enterAllowedIn = false;
-
+            }
+            else if (collider.gameObject.name.Equals("Door13"))
+            {
+                enterAllowedIn = false;
+            }
+            else if (collider.gameObject.name.Equals("Door14"))
+            {
+                enterAllowedIn = false;
             }
         }  
         //CP3
@@ -485,7 +560,57 @@ public class KeyHolder : MonoBehaviour
             {
                 enterAllowedIn = false;
             }
-        }     
+            else if (collider.gameObject.name.Equals("Door17"))
+            {
+                enterAllowedIn = false;
+            }
+            else if (collider.gameObject.name.Equals("Door18"))
+            {
+                enterAllowedIn = false;
+            }
+        } 
+        //CP4
+        if (SceneManager.GetActiveScene().name == "CP4")
+        {
+            if (collider.gameObject.name.Equals("Door1"))
+            {
+                enterAllowedIn = false;
+            } 
+            else if (collider.gameObject.name.Equals("Door2"))
+            {
+                enterAllowedIn = false;
+            }
+            else if (collider.gameObject.name.Equals("Door3"))
+            {
+                enterAllowedIn = false;
+
+            }
+            else if (collider.gameObject.name.Equals("Door4"))
+            {
+                enterAllowedIn = false;
+
+            } 
+            else if (collider.gameObject.name.Equals("Door5"))
+            {
+                enterAllowedIn = false;
+
+            }
+            else if (collider.gameObject.name.Equals("Door6"))
+            {
+                enterAllowedIn = false;
+
+            }
+            else if (collider.gameObject.name.Equals("Door7"))
+            {
+                enterAllowedIn = false;
+
+            }
+            else if (collider.gameObject.name.Equals("Door8"))
+            {
+                enterAllowedIn = false;
+
+            }  
+        }  
     }
     
     private void Update()

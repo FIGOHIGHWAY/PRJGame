@@ -14,24 +14,34 @@ public class CodeDoor : MonoBehaviour
 	public int lth;
 	private string codeCP1OS;
 	private string codeCP3;
+	public AudioSource audioSource;
+    public AudioClip buttonSound;
+	public AudioClip passSound;
+    public AudioClip failSound;
+	void Start(){
+		Debug.Log(codeCP1OS);
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		codeText.text = codeTextValue;
 		score = RandomGenText.sum;
-		codeCP1OS = "123456";
-		codeCP3 = "654321";
-		
+		codeCP1OS = CodeText.codeCP1OS;
+		codeCP3 = CodeText.codeCP3;
 		
 		if (SceneManager.GetActiveScene().name == "Test")
         {
             // ต้องอยู่ใน GameplayScene ก่อนทำอะไรต่อ
 			if (codeTextValue == score) {
+			audioSource.PlayOneShot(passSound);
 			PlayerCode.isSafeOpened = true;
             Time.timeScale = 1f;
+			Debug.Log("Unlcok");
 			}
 
 			if (codeTextValue.Length >= 4)
+				audioSource.PlayOneShot(failSound);
 				codeTextValue = "";
         }
 
@@ -41,6 +51,7 @@ public class CodeDoor : MonoBehaviour
 			if (codeTextValue == codeCP1OS) {
 			PlayerCode.isSafeOpened = true;
             Time.timeScale = 1f;
+			Debug.Log("Unlcok");
 			}
 
 			if (codeTextValue.Length >= 6)
@@ -52,10 +63,12 @@ public class CodeDoor : MonoBehaviour
 			if (codeTextValue == codeCP3) {
 			PlayerCode.isSafeOpened = true;
             Time.timeScale = 1f;
+			Debug.Log("Unlcok");
 			}
 
-			if (codeTextValue.Length >= 6)
+			if (codeTextValue.Length >= 4)
 				codeTextValue = "";
+
         }
 		
 	}
@@ -64,6 +77,7 @@ public class CodeDoor : MonoBehaviour
 	public void AddDigit(string digit)
 	{
 		codeTextValue += digit;
+		audioSource.PlayOneShot(buttonSound);
 	}
 
 }
