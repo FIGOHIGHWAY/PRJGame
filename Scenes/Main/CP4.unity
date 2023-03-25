@@ -554,6 +554,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -725,6 +726,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -1414,7 +1416,15 @@ MonoBehaviour:
   Deadcon: {fileID: 323644707}
   respawnPointplayer: {fileID: 1983757602}
   respawnPointBoss: {fileID: 767922730}
-  boxes: []
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
   playerPushScript: {fileID: 592799796}
 --- !u!212 &152397220
 SpriteRenderer:
@@ -10119,7 +10129,15 @@ MonoBehaviour:
   Deadcon: {fileID: 323644707}
   respawnPointplayer: {fileID: 1983757602}
   respawnPointBoss: {fileID: 767922730}
-  boxes: []
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
   playerPushScript: {fileID: 592799796}
 --- !u!212 &409892267
 SpriteRenderer:
@@ -10889,7 +10907,7 @@ GameObject:
   - component: {fileID: 551784420}
   - component: {fileID: 551784419}
   - component: {fileID: 551784422}
-  - component: {fileID: 551784421}
+  - component: {fileID: 551784423}
   m_Layer: 0
   m_Name: spike2
   m_TagString: Untagged
@@ -10964,25 +10982,6 @@ Transform:
   m_Father: {fileID: 591189936}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &551784421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551784418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d9b355e5367de429337c266a6778e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 592799800}
-  Boss: {fileID: 581551669}
-  Deadcon: {fileID: 323644707}
-  respawnPointplayer: {fileID: 1983757602}
-  respawnPointBoss: {fileID: 767922730}
-  boxes: []
-  playerPushScript: {fileID: 592799796}
 --- !u!61 &551784422
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11009,6 +11008,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1479003, y: 0.48}
   m_EdgeRadius: 0
+--- !u!114 &551784423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551784418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d9b355e5367de429337c266a6778e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 592799800}
+  Boss: {fileID: 581551669}
+  Deadcon: {fileID: 323644707}
+  respawnPointplayer: {fileID: 1983757602}
+  respawnPointBoss: {fileID: 767922730}
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
+  playerPushScript: {fileID: 592799796}
 --- !u!1 &559935508
 GameObject:
   m_ObjectHideFlags: 0
@@ -11150,10 +11176,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 592799800}
   Boss: {fileID: 581551669}
-  Deadcon: {fileID: 0}
+  Deadcon: {fileID: 323644707}
   respawnPointplayer: {fileID: 1983757602}
   respawnPointBoss: {fileID: 767922730}
-  boxes: []
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
   playerPushScript: {fileID: 592799796}
 --- !u!61 &575369728
 BoxCollider2D:
@@ -11873,11 +11907,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2440125021815569246, guid: b5be8e0bca29ccc4292cfd6e9a9a35f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -638.7
+      value: -566.95
       objectReference: {fileID: 0}
     - target: {fileID: 2440125021815569246, guid: b5be8e0bca29ccc4292cfd6e9a9a35f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -171.54
+      value: -167.12
       objectReference: {fileID: 0}
     - target: {fileID: 2440125021815569246, guid: b5be8e0bca29ccc4292cfd6e9a9a35f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12580,6 +12614,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -14251,7 +14286,15 @@ MonoBehaviour:
   Deadcon: {fileID: 323644707}
   respawnPointplayer: {fileID: 1983757602}
   respawnPointBoss: {fileID: 767922730}
-  boxes: []
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
   playerPushScript: {fileID: 592799796}
 --- !u!61 &843231144
 BoxCollider2D:
@@ -15136,6 +15179,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -38694,6 +38738,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -40850,7 +40895,15 @@ MonoBehaviour:
   Deadcon: {fileID: 323644707}
   respawnPointplayer: {fileID: 1983757602}
   respawnPointBoss: {fileID: 767922730}
-  boxes: []
+  boxes:
+  - {fileID: 941910803}
+  - {fileID: 1529087052}
+  - {fileID: 2137066396}
+  - {fileID: 58685842}
+  - {fileID: 2031772784}
+  - {fileID: 1842899774}
+  - {fileID: 643700095}
+  - {fileID: 49140380}
   playerPushScript: {fileID: 592799796}
 --- !u!1001 &1787244790
 PrefabInstance:
@@ -52724,6 +52777,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -54731,6 +54785,50 @@ Transform:
   m_Father: {fileID: 1754490714}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1985070929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985070931}
+  - component: {fileID: 1985070930}
+  m_Layer: 0
+  m_Name: Audi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1985070930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985070929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472edc185f07e0a49a7ba4095c0630a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1985070931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985070929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -467.85297, y: -141.85376, z: -9.061264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1987243704
 GameObject:
   m_ObjectHideFlags: 0
@@ -55392,6 +55490,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
@@ -56925,9 +57024,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 760366994}
-        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
-        m_MethodName: TutorialGame
+      - m_Target: {fileID: 1985070930}
+        m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
+        m_MethodName: ToggleSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57029,6 +57128,7 @@ MonoBehaviour:
   defaultMass: 0
   imovableMass: 0
   beingPushed: 0
+  xPos: 0
   lastPos: {x: 0, y: 0, z: 0}
   mode: 0
   colliding: 0
