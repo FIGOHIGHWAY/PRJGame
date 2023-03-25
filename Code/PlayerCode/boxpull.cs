@@ -7,7 +7,7 @@ public class boxpull : MonoBehaviour
     public float defaultMass;
 		public float imovableMass;
 		public bool beingPushed;
-		float xPos;
+		public float xPos;
 
 		public Vector3 lastPos;
 

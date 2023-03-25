@@ -15192,7 +15192,7 @@ MonoBehaviour:
   KeyOPDoor: {fileID: 1878327707}
   DL1: {fileID: 2009110381}
   DL2: {fileID: 1974383160}
-  BG1: {fileID: 0}
+  BG1: {fileID: 1026509797}
   BG2: {fileID: 0}
   loopCount: 0
 --- !u!82 &785418279
@@ -47699,7 +47699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687437556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.732727, y: -94.09392, z: -11.865177}
+  m_LocalPosition: {x: 26.732727, y: -93.84, z: -11.865177}
   m_LocalScale: {x: 2.4188, y: 2.2397, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -31,6 +31,7 @@ public class BossRespawn : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            
             player.transform.position = respawnPointplayer.transform.position;
             Boss.transform.position = respawnPointBoss.transform.position;
 
@@ -40,7 +41,9 @@ public class BossRespawn : MonoBehaviour
             // Reset the positions of the boxes
             for (int i = 0; i < boxes.Length; i++)
             {
+                boxpull boxPullScript = boxes[i].GetComponent<boxpull>();
                 boxes[i].transform.position = boxPositions[i];
+                boxPullScript.xPos = boxPositions[i].x;
             }
         }
 

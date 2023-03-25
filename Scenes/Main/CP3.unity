@@ -9433,7 +9433,7 @@ MonoBehaviour:
   audioSource: {fileID: 1286817433}
   text: {fileID: 1804911053}
   lines:
-  - "\u0E44\u0E21\u0E48\u0E08\u0E23\u0E34\u0E07\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E40\u0E18\u0E2D\u0E44\u0E21\u0E48\u0E40\u0E08\u0E2D"
+  - "\u0E40\u0E18\u0E2D\u0E2D\u0E22\u0E39\u0E48\u0E15\u0E23\u0E07\u0E19\u0E31\u0E49\u0E19"
   textSpeed: 0.06
   animator: {fileID: 1286817429}
 --- !u!114 &74749039
